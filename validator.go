@@ -1,7 +1,6 @@
 package validatorx
 
 import (
-	"fmt"
 	"github.com/go-playground/locales/en"
 	"github.com/go-playground/locales/zh"
 	"github.com/go-playground/universal-translator"
@@ -33,11 +32,7 @@ func checkMobile(fl validator.FieldLevel) bool {
 }
 
 func (cv *Validator) Validate(i interface{}) (err error) {
-	if err = cv.validator.Struct(i); nil != err {
-		return fmt.Errorf("{ErrorCode=%d, message=%s, data=%v}", 9901, err.Error(), i)
-	}
-
-	return
+	return cv.validator.Struct(i)
 }
 
 func New() *Validator {
