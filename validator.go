@@ -20,7 +20,7 @@ type Validator struct {
 
 // 检查手机号
 func CheckMobile(mobile string) bool {
-	regular := `^861([38][0-9]|14[579]|5[^4]|16[6]|7[1-35-8]|9[189])\d{8}$`
+	regular := `^861([3,4,5,6,7,8,9][0-9])\d{8}$`
 	reg := regexp.MustCompile(regular)
 
 	return reg.MatchString(mobile)
