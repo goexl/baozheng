@@ -13,26 +13,31 @@ import (
 
 var (
 	translator *ut.UniversalTranslator
-	validate   = validator.New()
+	validate   *validator.Validate
 )
 
 type Validator struct {
 	validator *validator.Validate
 }
 
+func init() {
+	validate = validator.New()
+	initValidation()
+}
+
 func (cv *Validator) Validate(i interface{}) (err error) {
 	return cv.validator.Struct(i)
 }
 
-func New() (validator *Validator, err error) {
+func New() (validator *Validator) {
 	translator = ut.New(en.New(), en.New(), zh.New())
 	if english, success := translator.GetTranslator("en"); success {
-		if err = enLang.RegisterDefaultTranslations(validate, english); nil != err {
+		if err := enLang.RegisterDefaultTranslations(validate, english); nil != err {
 			return
 		}
 	}
 	if chinese, success := translator.GetTranslator("zh"); success {
-		if err = zhLang.RegisterDefaultTranslations(validate, chinese); nil != err {
+		if err := zhLang.RegisterDefaultTranslations(validate, chinese); nil != err {
 			return
 		}
 	}
