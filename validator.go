@@ -1,62 +1,45 @@
 package validatorx
 
 import (
+	"strings"
+
 	"github.com/go-playground/locales/en"
 	"github.com/go-playground/locales/zh"
 	"github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
 	enLang "github.com/go-playground/validator/v10/translations/en"
 	zhLang "github.com/go-playground/validator/v10/translations/zh"
-	"log"
-	"regexp"
-	"strings"
 )
 
-var translator *ut.UniversalTranslator
+var (
+	translator *ut.UniversalTranslator
+	validate   = validator.New()
+)
 
 type Validator struct {
 	validator *validator.Validate
-}
-
-// 检查手机号
-func CheckMobile(mobile string) bool {
-	regular := `^[+]86[-]1([3,4,5,6,7,8,9][0-9])\d{8}$`
-	reg := regexp.MustCompile(regular)
-
-	return reg.MatchString(mobile)
-}
-
-// 自定义手机号验证函数
-func checkMobile(fl validator.FieldLevel) bool {
-	return CheckMobile(fl.Field().String())
 }
 
 func (cv *Validator) Validate(i interface{}) (err error) {
 	return cv.validator.Struct(i)
 }
 
-func New() *Validator {
-	var (
-		v   = validator.New()
-		err error
-	)
-	if err = v.RegisterValidation("mobile", checkMobile); nil != err {
-		log.Panicf("RegisterValidation err=%v", err.Error())
-	}
-
+func New() (validator *Validator, err error) {
 	translator = ut.New(en.New(), en.New(), zh.New())
 	if english, success := translator.GetTranslator("en"); success {
-		if err = enLang.RegisterDefaultTranslations(v, english); nil != err {
-			log.Panicf("RegisterDefaultTranslations err=%v", err.Error())
+		if err = enLang.RegisterDefaultTranslations(validate, english); nil != err {
+			return
 		}
 	}
 	if chinese, success := translator.GetTranslator("zh"); success {
-		if err = zhLang.RegisterDefaultTranslations(v, chinese); nil != err {
-			log.Panicf("RegisterDefaultTranslations err=%v", err.Error())
+		if err = zhLang.RegisterDefaultTranslations(validate, chinese); nil != err {
+			return
 		}
 	}
 
-	return &Validator{validator: v}
+	validator = &Validator{validator: validate}
+
+	return
 }
 
 func I18n(lang string, errs validator.ValidationErrors) (i18n validator.ValidationErrorsTranslations) {
