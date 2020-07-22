@@ -9,7 +9,7 @@ func initValidation() (err error) {
 		return
 	}
 
-	if err = validate.RegisterValidation("validate_string", checkValidateName); nil != err {
+	if err = validate.RegisterValidation("validate_name", checkValidateName); nil != err {
 		return
 	}
 

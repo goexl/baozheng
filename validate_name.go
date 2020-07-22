@@ -5,7 +5,7 @@ import (
 )
 
 // 不含特殊字符的有效名字 并且一个中文算1个字符 返回字符含有多少字符,是否有效
-func ValidateString(str string) (int, bool) {
+func ValidateName(str string) (int, bool) {
 	l := len([]rune(str))
 	for _, r := range []rune(str) {
 		i := int(r)
@@ -19,6 +19,6 @@ func ValidateString(str string) (int, bool) {
 
 // 不含特殊字符的有效名字 并且一个中文算1个字符
 func checkValidateName(fl validator.FieldLevel) bool {
-	_, valid := ValidateString(fl.Field().String())
+	_, valid := ValidateName(fl.Field().String())
 	return valid
 }
