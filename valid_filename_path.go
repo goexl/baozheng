@@ -3,7 +3,6 @@ package validatorx
 import (
 	`path/filepath`
 	`regexp`
-	`strings`
 
 	`github.com/go-playground/validator/v10`
 )
@@ -18,10 +17,10 @@ func ValidFilenamePath(file string) bool {
 	if file == "/" {
 		return true
 	}
-	file = strings.TrimSuffix(file, "/")
 	fileRegexStr := `^[^\\\./:\*\?\"<>\|]{1}[^\\/:\*\?\"<>\|]{0,254}$`
 	filenamRegex := regexp.MustCompile(fileRegexStr)
-	_, f := filepath.Split(file)
+	f := filepath.Base(file)
+
 	return filenamRegex.MatchString(f)
 }
 
