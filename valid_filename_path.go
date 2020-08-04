@@ -21,7 +21,8 @@ func ValidFilenamePath(file string) bool {
 	file = strings.TrimSuffix(file, "/")
 	fileRegexStr := `^[^\\\./:\*\?\"<>\|]{1}[^\\/:\*\?\"<>\|]{0,254}$`
 	filenamRegex := regexp.MustCompile(fileRegexStr)
-	_, f := filepath.Split(file)
+	_, f := filepath.Split(file
+
 	return filenamRegex.MatchString(f)
 }
 
