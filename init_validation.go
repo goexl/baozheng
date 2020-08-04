@@ -13,7 +13,7 @@ func initValidation() (err error) {
 		return
 	}
 
-	if err = validate.RegisterValidation("valid_file_name_path", checkValidFileNamePath); nil != err {
+	if err = validate.RegisterValidation("filename", checkValidFileNamePath); nil != err {
 		return
 	}
 
