@@ -12,12 +12,12 @@ func checkValidFileNamePath(fl validator.FieldLevel) bool {
 	return ValidFilenamePath(fl.Field().String())
 }
 
-// 有效文件名（Windows标准）/路径和文件名检测同一个
+// 有效文件名（Windows标准）/路径和文件名检测同一个 我们用200个字符
 func ValidFilenamePath(file string) bool {
 	if file == "/" {
 		return true
 	}
-	fileRegexStr := `^[^\\\./:\*\?\"<>\|]{1}[^\\/:\*\?\"<>\|]{0,254}$`
+	fileRegexStr := `^[^\\\./:\*\?\"<>\|]{1}[^\\/:\*\?\"<>\|]{0,200}$`
 	filenamRegex := regexp.MustCompile(fileRegexStr)
 	f := filepath.Base(file)
 
