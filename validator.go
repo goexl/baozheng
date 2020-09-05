@@ -9,6 +9,7 @@ import (
 	"github.com/go-playground/validator/v10"
 	enLang "github.com/go-playground/validator/v10/translations/en"
 	zhLang "github.com/go-playground/validator/v10/translations/zh"
+	"github.com/storezhang/gox"
 )
 
 var (
@@ -22,7 +23,9 @@ type Validator struct {
 
 func init() {
 	validate = validator.New()
-	initValidation()
+	if err := initValidation(); nil != err {
+		panic(err)
+	}
 }
 
 func (cv *Validator) Validate(i interface{}) (err error) {
@@ -57,6 +60,7 @@ func I18n(lang string, errs validator.ValidationErrors) (i18n validator.Validati
 	for i := 0; i < len(splits); i++ {
 		if t, s := translator.FindTranslator(lang); s {
 			i18n = errs.Translate(t)
+
 			break
 		} else {
 			if index := strings.LastIndex(lang, sep); -1 == index {
@@ -70,6 +74,15 @@ func I18n(lang string, errs validator.ValidationErrors) (i18n validator.Validati
 		if t, s := translator.GetTranslator("zh"); s {
 			i18n = errs.Translate(t)
 		}
+	}
+
+	// 得到的国际化字符串是一个带请求体的键值，类似于LoginReq.Password：错误消息
+	// 而我们需要的是password: 错误消息
+	for field, msg := range i18n {
+		newField := gox.CamelName(string(field[strings.IndexRune(field, '.')]))
+		i18n[newField] = msg
+		// 删除原来的错误消息，避免前端混乱
+		delete(i18n, field)
 	}
 
 	return
