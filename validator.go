@@ -78,12 +78,14 @@ func I18n(lang string, errs validator.ValidationErrors) (i18n validator.Validati
 
 	// 得到的国际化字符串是一个带请求体的键值，类似于LoginReq.Password：错误消息
 	// 而我们需要的是password: 错误消息
+	newI18n := make(map[string]string, len(i18n))
 	for field, msg := range i18n {
-		newField := gox.CamelName(string(field[strings.IndexRune(field, '.')]))
-		i18n[newField] = msg
+		newField := gox.InitialLowercase(gox.CamelName(field[strings.IndexRune(field, '.')+1:]))
+		newI18n[newField] = msg
 		// 删除原来的错误消息，避免前端混乱
 		delete(i18n, field)
 	}
+	i18n = newI18n
 
 	return
 }
