@@ -18,18 +18,18 @@ func ValidFilenamePath(file string) bool {
 		return true
 	}
 	fileRegexStr := `^[^\\\./:\*\?\"<>\|]{1}[^\\/:\*\?\"<>\|]{0,200}$`
-	filenamRegex := regexp.MustCompile(fileRegexStr)
+	filenameRegex := regexp.MustCompile(fileRegexStr)
 	f := filepath.Base(file)
 
-	return filenamRegex.MatchString(f)
+	return filenameRegex.MatchString(f)
 }
 
 // 有效文件名（Windows标准）
 func ValidFilename(filename string) bool {
 	fileRegexStr := `^[^\\\./:\*\?\"<>\|]{1}[^\\/:\*\?\"<>\|]{0,254}$`
-	filenamRegex := regexp.MustCompile(fileRegexStr)
+	filenameRegex := regexp.MustCompile(fileRegexStr)
 
-	return filenamRegex.MatchString(filename)
+	return filenameRegex.MatchString(filename)
 }
 
 // 有效文件夹名
