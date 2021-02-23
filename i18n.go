@@ -3,36 +3,9 @@ package validatorx
 import (
 	`strings`
 
-	`github.com/go-playground/locales/en`
-	`github.com/go-playground/locales/zh`
-	ut `github.com/go-playground/universal-translator`
 	`github.com/go-playground/validator/v10`
-	enLang "github.com/go-playground/validator/v10/translations/en"
-	zhLang "github.com/go-playground/validator/v10/translations/zh"
 	`github.com/storezhang/gox`
 )
-
-func (cv *Validator) Validate(i interface{}) (err error) {
-	return cv.validator.Struct(i)
-}
-
-func New() (validator *Validator) {
-	translator = ut.New(en.New(), en.New(), zh.New())
-	if english, success := translator.GetTranslator("en"); success {
-		if err := enLang.RegisterDefaultTranslations(validate, english); nil != err {
-			return
-		}
-	}
-	if chinese, success := translator.GetTranslator("zh"); success {
-		if err := zhLang.RegisterDefaultTranslations(validate, chinese); nil != err {
-			return
-		}
-	}
-
-	validator = &Validator{validator: validate}
-
-	return
-}
 
 func I18n(lang string, errs validator.ValidationErrors) (i18n validator.ValidationErrorsTranslations) {
 	sep := "_"
