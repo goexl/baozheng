@@ -16,7 +16,6 @@ func initValidation() (err error) {
 	if err = validate.RegisterValidation("start_with_alpha", checkStartWithAlpha); nil != err {
 		return
 	}
-
 	if err = validate.RegisterValidation("prefix_or_suffix_space", checkPrefixOrSuffixSpace); nil != err {
 		return
 	}
