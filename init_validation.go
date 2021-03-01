@@ -19,6 +19,9 @@ func initValidation() (err error) {
 	if err = validate.RegisterValidation("prefix_or_suffix_space", checkPrefixOrSuffixSpace); nil != err {
 		return
 	}
+	if err = validate.RegisterValidation("max_len_without_number_suffix", checkStringMaxLenWithoutNumberSuffix); nil != err {
+		return
+	}
 
 	return
 }
