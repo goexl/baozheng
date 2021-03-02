@@ -1,8 +1,8 @@
 package validatorx
 
 import (
-	ut "github.com/go-playground/universal-translator"
-	"github.com/go-playground/validator/v10"
+	ut `github.com/go-playground/universal-translator`
+	`github.com/go-playground/validator/v10`
 )
 
 func initValidation(validate *validator.Validate) (err error) {

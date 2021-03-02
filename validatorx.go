@@ -1,12 +1,12 @@
 package validatorx
 
 import (
-	"github.com/go-playground/locales/en"
-	"github.com/go-playground/locales/zh"
-	"github.com/go-playground/universal-translator"
-	"github.com/go-playground/validator/v10"
-	enLang "github.com/go-playground/validator/v10/translations/en"
-	zhLang "github.com/go-playground/validator/v10/translations/zh"
+	`github.com/go-playground/locales/en`
+	`github.com/go-playground/locales/zh`
+	`github.com/go-playground/universal-translator`
+	`github.com/go-playground/validator/v10`
+	enLang `github.com/go-playground/validator/v10/translations/en`
+	zhLang `github.com/go-playground/validator/v10/translations/zh`
 )
 
 var (
