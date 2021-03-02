@@ -12,19 +12,31 @@ import (
 var (
 	translator *ut.UniversalTranslator
 	validate   *validator.Validate
+	validatorx *Validatorx
 )
 
 type Validatorx struct {
-	validator *validator.Validate
+	validate *validator.Validate
 }
 
 func (v *Validatorx) Validate(obj interface{}) error {
-	return v.validator.Struct(obj)
+	return v.validate.Struct(obj)
 }
 
-// New 创建
-func New() (validator *Validatorx) {
+// GetInstance 获取数据验证器
+func GetInstance() *Validatorx {
+	return validatorx
+}
+
+// Validate 验证
+func Validate(obj interface{}) error {
+	return validate.Struct(obj)
+}
+
+func init() {
+	validate = validator.New()
 	translator = ut.New(en.New(), zh.New())
+
 	english, _ := translator.GetTranslator("en")
 	if err := enLang.RegisterDefaultTranslations(validate, english); nil != err {
 		panic(err)
@@ -41,16 +53,5 @@ func New() (validator *Validatorx) {
 		panic(err)
 	}
 
-	validator = &Validatorx{validator: validate}
-
-	return
-}
-
-// Validate 验证
-func Validate(obj interface{}) error {
-	return validate.Struct(obj)
-}
-
-func init() {
-	validate = validator.New()
+	validatorx = &Validatorx{validate: validate}
 }
