@@ -1,12 +1,12 @@
 package validatorx
 
 import (
-	`github.com/go-playground/locales/en`
-	`github.com/go-playground/locales/zh`
+	"github.com/go-playground/locales/en"
+	"github.com/go-playground/locales/zh"
 	"github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
-	enLang `github.com/go-playground/validator/v10/translations/en`
-	zhLang `github.com/go-playground/validator/v10/translations/zh`
+	enLang "github.com/go-playground/validator/v10/translations/en"
+	zhLang "github.com/go-playground/validator/v10/translations/zh"
 )
 
 var (
@@ -24,16 +24,21 @@ func (v *Validatorx) Validate(obj interface{}) error {
 
 // New 创建
 func New() (validator *Validatorx) {
-	translator = ut.New(en.New(), en.New(), zh.New())
-	if english, success := translator.GetTranslator("en"); success {
-		if err := enLang.RegisterDefaultTranslations(validate, english); nil != err {
-			return
-		}
+	translator = ut.New(en.New(), zh.New())
+	english, _ := translator.GetTranslator("en")
+	if err := enLang.RegisterDefaultTranslations(validate, english); nil != err {
+		panic(err)
 	}
-	if chinese, success := translator.GetTranslator("zh"); success {
-		if err := zhLang.RegisterDefaultTranslations(validate, chinese); nil != err {
-			return
-		}
+	chinese, _ := translator.GetTranslator("zh")
+	if err := zhLang.RegisterDefaultTranslations(validate, chinese); nil != err {
+		panic(err)
+	}
+
+	if err := initValidation(validate); nil != err {
+		panic(err)
+	}
+	if err := initTranslation(validate, chinese); nil != err {
+		panic(err)
 	}
 	validator = &Validatorx{validator: validate}
 
@@ -47,7 +52,4 @@ func Validate(obj interface{}) error {
 
 func init() {
 	validate = validator.New()
-	if err := initValidation(); nil != err {
-		panic(err)
-	}
 }

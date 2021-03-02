@@ -8,8 +8,8 @@ import (
 	"github.com/go-playground/validator/v10"
 )
 
-// CheckStringMaxLenWithoutNumberSuffix 检查去掉'-数字'尾字符串后的字符串长度是否小于等于指定长度 并且一个中文算1个字符
-func CheckStringMaxLenWithoutNumberSuffix(checkString string, maxLen int) bool {
+// CheckMaxStringLenWithoutNumberSuffix 检查去掉'-数字'尾字符串后的字符串长度是否小于等于指定长度 并且一个中文算1个字符
+func CheckMaxStringLenWithoutNumberSuffix(checkString string, maxLen int) bool {
 	suffixRegexStr := `-[\d]+$`
 	suffixRegex, _ := regexp.Compile(suffixRegexStr)
 
@@ -21,8 +21,8 @@ func CheckStringMaxLenWithoutNumberSuffix(checkString string, maxLen int) bool {
 	return utf8.RuneCountInString(checkString[:matchLoc[0]]) <= maxLen
 }
 
-func checkStringMaxLenWithoutNumberSuffix(fl validator.FieldLevel) bool {
+func checkMaxStringLenWithoutNumberSuffix(fl validator.FieldLevel) bool {
 	maxLen, _ := strconv.Atoi(fl.Param())
 
-	return CheckStringMaxLenWithoutNumberSuffix(fl.Field().String(), maxLen)
+	return CheckMaxStringLenWithoutNumberSuffix(fl.Field().String(), maxLen)
 }
