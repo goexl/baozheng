@@ -40,6 +40,7 @@ func New() (validator *Validatorx) {
 	if err := initTranslation(validate, chinese); nil != err {
 		panic(err)
 	}
+
 	validator = &Validatorx{validator: validate}
 
 	return
