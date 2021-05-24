@@ -28,9 +28,14 @@ func GetInstance() *Validatorx {
 	return validatorx
 }
 
-// Validate 验证
-func Validate(obj interface{}) error {
+// Struct 验证结构体
+func Struct(obj interface{}) error {
 	return validate.Struct(obj)
+}
+
+// Var 验证
+func Var(obj interface{}, tag string) error {
+	return validate.Var(obj, tag)
 }
 
 func init() {
