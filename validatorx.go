@@ -9,54 +9,45 @@ import (
 	zhLang `github.com/go-playground/validator/v10/translations/zh`
 )
 
-var (
-	translator *ut.UniversalTranslator
-	validate   *validator.Validate
-	validatorx *Validatorx
-)
+var translator *ut.UniversalTranslator
 
 type Validatorx struct {
 	validate *validator.Validate
 }
 
-func (v *Validatorx) Validate(obj interface{}) error {
+func (v *Validatorx) Struct(obj interface{}) error {
 	return v.validate.Struct(obj)
 }
 
-// GetInstance 获取数据验证器
-func GetInstance() *Validatorx {
-	return validatorx
+func (v *Validatorx) Var(obj interface{}, tag string) error {
+	return v.validate.Var(obj, tag)
 }
 
-// Struct 验证结构体
-func Struct(obj interface{}) error {
-	return validate.Struct(obj)
+// New 创建验证器
+func New(validate *validator.Validate) *Validatorx {
+	return &Validatorx{validate: validate}
 }
 
-// Var 验证
-func Var(obj interface{}, tag string) error {
-	return validate.Var(obj, tag)
-}
-
-func init() {
+// NewValidate 创建内置验证器
+func NewValidate() (validate *validator.Validate, err error) {
 	validate = validator.New()
 	translator = ut.New(en.New(), zh.New())
 
 	english, _ := translator.GetTranslator("en")
-	if err := enLang.RegisterDefaultTranslations(validate, english); nil != err {
-		panic(err)
+	if err = enLang.RegisterDefaultTranslations(validate, english); nil != err {
+		return
 	}
 	chinese, _ := translator.GetTranslator("zh")
-	if err := zhLang.RegisterDefaultTranslations(validate, chinese); nil != err {
-		panic(err)
+	if err = zhLang.RegisterDefaultTranslations(validate, chinese); nil != err {
+		return
 	}
 
-	if err := initValidation(validate); nil != err {
-		panic(err)
+	if err = initValidation(validate); nil != err {
+		return
 	}
-	if err := initTranslation(validate, chinese); nil != err {
-		panic(err)
+	if err = initTranslation(validate, chinese); nil != err {
+		return
 	}
 
-	validatorx = &Validatorx{validate: validate}
+	return
 }
