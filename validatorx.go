@@ -11,21 +11,21 @@ import (
 
 var translator *ut.UniversalTranslator
 
-type Validatorx struct {
+type Validate struct {
 	validate *validator.Validate
 }
 
-func (v *Validatorx) Struct(obj interface{}) error {
+func (v *Validate) Struct(obj interface{}) error {
 	return v.validate.Struct(obj)
 }
 
-func (v *Validatorx) Var(obj interface{}, tag string) error {
+func (v *Validate) Var(obj interface{}, tag string) error {
 	return v.validate.Var(obj, tag)
 }
 
 // New 创建验证器
-func New(validate *validator.Validate) *Validatorx {
-	return &Validatorx{validate: validate}
+func New(validate *validator.Validate) *Validate {
+	return &Validate{validate: validate}
 }
 
 // NewValidate 创建内置验证器

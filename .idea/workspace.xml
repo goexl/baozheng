@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c2acc85-1838-404e-b42b-9cbef7aeb349" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pangu.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/translation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init_validation.go" beforeDir="false" afterPath="$PROJECT_DIR$/validation.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/validatorx.go" beforeDir="false" afterPath="$PROJECT_DIR$/validatorx.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +17,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="$PROJECT_DIR$/../../../../Developments/Google/Golang/go1.14.2" />
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../Developments/Google/Golang/go1.16.4" />
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
       <GitPushTagMode>
@@ -62,7 +59,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="RunManager">
     <configuration name="TestStartWithAlpha in github.com/storezhang/validatorx" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
