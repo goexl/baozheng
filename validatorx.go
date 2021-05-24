@@ -19,8 +19,8 @@ func (v *Validate) Struct(obj interface{}) error {
 	return v.validate.Struct(obj)
 }
 
-func (v *Validate) Var(obj interface{}, tag string) error {
-	return v.validate.Var(obj, tag)
+func (v *Validate) Var(field interface{}, tag string) error {
+	return v.validate.Var(field, tag)
 }
 
 // New 创建验证器
