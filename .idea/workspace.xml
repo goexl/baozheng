@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9c2acc85-1838-404e-b42b-9cbef7aeb349" name="Default Changelist" comment="修复">
-      <change afterPath="$PROJECT_DIR$/init.go" afterDir="false" />
+    <list default="true" id="9c2acc85-1838-404e-b42b-9cbef7aeb349" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pangu.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/validatorx.go" beforeDir="false" afterPath="$PROJECT_DIR$/validatorx.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +51,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../uoa" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -104,7 +100,8 @@
     <MESSAGE value="增加国际化字符串" />
     <MESSAGE value="YUNKE-2958 【PC】nsis脚本添加安装时注册客户端的调用协议" />
     <MESSAGE value="增加变量验证" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加变量验证" />
+    <MESSAGE value="修复盘古循环依赖" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复盘古循环依赖" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
