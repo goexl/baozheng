@@ -24,6 +24,11 @@ func Var(field interface{}, tag string) error {
 	return validate.Var(field, tag)
 }
 
+// New 创建新的验证器
+func New() *validator.Validate {
+	return validate
+}
+
 // 创建内置验证器
 // 单例设计模式
 func newValidate() (err error) {
