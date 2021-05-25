@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9c2acc85-1838-404e-b42b-9cbef7aeb349" name="Default Changelist" comment="">
+    <list default="true" id="9c2acc85-1838-404e-b42b-9cbef7aeb349" name="Default Changelist" comment="修复">
+      <change afterPath="$PROJECT_DIR$/init.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pangu.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validatorx.go" beforeDir="false" afterPath="$PROJECT_DIR$/validatorx.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
