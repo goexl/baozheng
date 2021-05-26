@@ -15,7 +15,7 @@ func WithoutSpecialSymbol(str string) (l int, b bool) {
 	}
 	for _, r := range []rune(str) {
 		i := int(r)
-		if i < 32 || (i >= 126 && i < 256) {
+		if i < 32 || (i > 126 && i < 256) {
 			return
 		}
 	}
