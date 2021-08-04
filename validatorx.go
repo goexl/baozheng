@@ -10,48 +10,46 @@ import (
 )
 
 var (
-	translator *ut.UniversalTranslator
 	validate   *validator.Validate
-	validatorx *Validatorx
+	translator *ut.UniversalTranslator
 )
 
-type Validatorx struct {
-	validate *validator.Validate
-}
-
-func (v *Validatorx) Validate(obj interface{}) error {
-	return v.validate.Struct(obj)
-}
-
-// GetInstance 获取数据验证器
-func GetInstance() *Validatorx {
-	return validatorx
-}
-
-// Validate 验证
-func Validate(obj interface{}) error {
+// Struct 验证结构体
+func Struct(obj interface{}) error {
 	return validate.Struct(obj)
 }
 
-func init() {
+// Var 验证变量
+func Var(field interface{}, tag string) error {
+	return validate.Var(field, tag)
+}
+
+// New 创建新的验证器
+func New() *validator.Validate {
+	return validate
+}
+
+// 创建内置验证器
+// 单例设计模式
+func newValidate() (err error) {
 	validate = validator.New()
 	translator = ut.New(en.New(), zh.New())
 
 	english, _ := translator.GetTranslator("en")
-	if err := enLang.RegisterDefaultTranslations(validate, english); nil != err {
-		panic(err)
+	if err = enLang.RegisterDefaultTranslations(validate, english); nil != err {
+		return
 	}
 	chinese, _ := translator.GetTranslator("zh")
-	if err := zhLang.RegisterDefaultTranslations(validate, chinese); nil != err {
-		panic(err)
+	if err = zhLang.RegisterDefaultTranslations(validate, chinese); nil != err {
+		return
 	}
 
-	if err := initValidation(validate); nil != err {
-		panic(err)
+	if err = initValidation(validate); nil != err {
+		return
 	}
-	if err := initTranslation(validate, chinese); nil != err {
-		panic(err)
+	if err = initTranslation(validate, chinese); nil != err {
+		return
 	}
 
-	validatorx = &Validatorx{validate: validate}
+	return
 }

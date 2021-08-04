@@ -1,7 +1,9 @@
-package validatorx
+package validatorx_test
 
 import (
 	`testing`
+
+	`github.com/storezhang/validatorx`
 )
 
 func TestStartWithAlpha(t *testing.T) {
@@ -18,7 +20,7 @@ func TestStartWithAlpha(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		got := StartWithAlpha(tc.input)
+		got := validatorx.StartWithAlpha(tc.input)
 		if got != tc.expected {
 			t.Fatalf("期望：%v，实际：%v", tc.expected, got)
 		}
