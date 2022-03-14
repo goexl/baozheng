@@ -1,9 +1,9 @@
-package validatorx_test
+package baozheng_test
 
 import (
 	`testing`
 
-	`github.com/storezhang/validatorx`
+	`github.com/goexl/baozheng`
 )
 
 func TestStartWithAlpha(t *testing.T) {
@@ -20,7 +20,7 @@ func TestStartWithAlpha(t *testing.T) {
 	}
 
 	for _, tc := range tests {
-		got := validatorx.StartWithAlpha(tc.input)
+		got := baozheng.StartWithAlpha(tc.input)
 		if got != tc.expected {
 			t.Fatalf("期望：%v，实际：%v", tc.expected, got)
 		}

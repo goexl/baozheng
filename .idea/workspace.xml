@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c2acc85-1838-404e-b42b-9cbef7aeb349" name="Default Changelist" comment="" />
+    <list default="true" id="9c2acc85-1838-404e-b42b-9cbef7aeb349" name="Default Changelist" comment="项目迁移">
+      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/validatorx.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/baozheng.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/i18n.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/init.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/max_string_length_without_number_suffix.go" beforeDir="false" afterPath="$PROJECT_DIR$/max_string_length_without_number_suffix.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile.go" beforeDir="false" afterPath="$PROJECT_DIR$/mobile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password.go" beforeDir="false" afterPath="$PROJECT_DIR$/password.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/password_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prefix_or_suffix_space.go" beforeDir="false" afterPath="$PROJECT_DIR$/prefix_or_suffix_space.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start_with_alpha.go" beforeDir="false" afterPath="$PROJECT_DIR$/start_with_alpha.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start_with_alpha_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/start_with_alpha_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/translation.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/valid_filename_path.go" beforeDir="false" afterPath="$PROJECT_DIR$/file.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validation.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/validatorx.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/without_special_symbol.go" beforeDir="false" afterPath="$PROJECT_DIR$/without_special_symbol.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +58,9 @@
   <component name="GoVcsConfiguration">
     <option name="GO_FMT" value="false" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1h2iiNuwPGO5jOK8br0YLI3hmWL" />
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
@@ -46,9 +74,13 @@
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.format.on.save.advertiser.fired" value="true" />
+    <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -58,9 +90,23 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Workspaces\Jetbrains\goexl\baozheng" />
+    </key>
+  </component>
   <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="baozheng" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/storezhang/validatorx" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestStartWithAlpha in github.com/storezhang/validatorx" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="validatorx" />
+      <module name="baozheng" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <package value="github.com/storezhang/validatorx" />
@@ -68,6 +114,16 @@
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
       <pattern value="^\QTestStartWithAlpha\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="baozheng" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <package value="github.com/storezhang/validatorx" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -99,7 +155,8 @@
     <MESSAGE value="YUNKE-2958 【PC】nsis脚本添加安装时注册客户端的调用协议" />
     <MESSAGE value="增加变量验证" />
     <MESSAGE value="修复盘古循环依赖" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复盘古循环依赖" />
+    <MESSAGE value="项目迁移" />
+    <option name="LAST_COMMIT_MESSAGE" value="项目迁移" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

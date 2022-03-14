@@ -1,13 +1,13 @@
-package validatorx
+package baozheng
 
-import "github.com/go-playground/validator/v10"
+var _ = Password
 
-// CheckPassword 检查密码
+// Password 检查密码
 // 密码规则
 // 只支持数字、字母、特殊字符
 // 每种类型至少一个
 // 密码长度至少8位 在外边验证
-func CheckPassword(password string /*, minLength, maxLength int*/) bool {
+func Password(password string /*, minLength, maxLength int*/) bool {
 	var digit, letter, special bool
 
 	for _, r := range []rune(password) {
@@ -29,8 +29,4 @@ func CheckPassword(password string /*, minLength, maxLength int*/) bool {
 	}
 
 	return false
-}
-
-func checkPassword(fl validator.FieldLevel) bool {
-	return CheckPassword(fl.Field().String())
 }

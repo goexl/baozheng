@@ -1,10 +1,10 @@
-package validatorx
+package baozheng
 
 import (
 	`unicode`
-
-	`github.com/go-playground/validator/v10`
 )
+
+var _ = StartWithAlpha
 
 // StartWithAlpha 字符串必须以字母开头
 func StartWithAlpha(str string) (checked bool) {
@@ -14,8 +14,4 @@ func StartWithAlpha(str string) (checked bool) {
 	checked = unicode.IsLetter(rune(str[0]))
 
 	return
-}
-
-func checkStartWithAlpha(fl validator.FieldLevel) bool {
-	return StartWithAlpha(fl.Field().String())
 }
